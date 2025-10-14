@@ -1,0 +1,14 @@
+"filename", "language", "C++", "Ini", "JSON", "Log", "comment", "blank", "total"
+"d:\C++\FakeWordMfc\.vs\FakeWordMfc\v17\DocumentLayout.json", "JSON", 0, 0, 114, 0, 0, 0, 114
+"d:\C++\FakeWordMfc\FakeWordMfc\AppTypes.h", "C++", 115, 0, 0, 0, 0, 6, 121
+"d:\C++\FakeWordMfc\FakeWordMfc\CSettingDialog.cpp", "C++", 15, 0, 0, 0, 1, 2, 18
+"d:\C++\FakeWordMfc\FakeWordMfc\CSettingDialog.h", "C++", -2, 0, 0, 0, 1, -1, -2
+"d:\C++\FakeWordMfc\FakeWordMfc\CStateBoxDlg.cpp", "C++", 11, 0, 0, 0, 2, 6, 19
+"d:\C++\FakeWordMfc\FakeWordMfc\CStateBoxDlg.h", "C++", 9, 0, 0, 0, 0, 2, 11
+"d:\C++\FakeWordMfc\FakeWordMfc\FakeWordMfcDlg.cpp", "C++", 91, 0, 0, 0, 12, 7, 110
+"d:\C++\FakeWordMfc\FakeWordMfc\FakeWordMfcDlg.h", "C++", 74, 0, 0, 0, 9, 1, 84
+"d:\C++\FakeWordMfc\FakeWordMfc\WordController.cpp", "C++", 24, 0, 0, 0, -8, 3, 19
+"d:\C++\FakeWordMfc\FakeWordMfc\WordController.h", "C++", 15, 0, 0, 0, 0, 5, 20
+"d:\C++\FakeWordMfc\FakeWordMfc\x64\Debug\FakeWordMfc.log", "Log", 0, 0, 0, -4, 0, 0, -4
+"d:\C++\FakeWordMfc\x64\Debug\config.ini", "Ini", 0, 3, 0, 0, 0, 0, 3
+"Total", "-", 352, 3, 114, -4, 17, 31, 513

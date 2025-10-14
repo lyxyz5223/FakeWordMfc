@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FakeWordMfc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeWordMfcDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StringProcess.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WordController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TextFileReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UIAutomation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TSFInterceptor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TSFManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ComResultAndCatch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CStateBoxDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IniConfigManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CSettingDialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AppTypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FakeWordMfc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeWordMfcDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StringProcess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WordController.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextFileReader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UIAutomation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TSFInterceptor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TSFManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CStateBoxDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IniConfigManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSettingDialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FakeWordMfc.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\FakeWordMfc.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="test.md">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\FakeWordMfc.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
