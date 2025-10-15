@@ -30,14 +30,41 @@ Full text of MIT is given in LICENSES/MIT.txt
 
 --------------------------------------------------------------------------------
 
-Component :  cz-conventional-changelog  (^3.3.0)
+Component :  Fluent UI System Color Icons
 SPDX-ID   :  MIT
-Location  :  node_modules/cz-conventional-changelog/
-Home-page :  https://github.com/cz-conventional-changelog/cz-conventional-changelog
-License   :  https://github.com/cz-conventional-changelog/cz-conventional-changelog/blob/master/LICENSE
+Location  :  assets/img/FluentUISystemColorIcons
+Home-page :  https://github.com/microsoft/fluentui
+License   :  https://github.com/microsoft/fluentui/blob/master/LICENSE
 Changed   :  No
 
 Full text of MIT is given in LICENSES/MIT.txt
+
+--------------------------------------------------------------------------------
+
+Component :  app.svg
+SPDX-ID   :  MIT
+Location  :  assets/img/app.svg
+Home-page :  https://github.com/microsoft/fluentui
+License   :  https://github.com/microsoft/fluentui/blob/master/LICENSE
+Source    :  assets/img/FluentUISystemColorIcons/fluent-color--document-text-24.svg
+             assets/img/TablerIcons/tabler--fish-christianity.svg
+Changed   :  Yes
+
+Full text of MIT is given in LICENSES/MIT.txt
+
+--------------------------------------------------------------------------------
+
+Component :  FakeWordMfc 图标
+SPDX-ID   :  MIT
+Location  :  FakeWordMfc/res/FakeWordMfc.ico
+Home-page :  https://github.com/microsoft/fluentui
+License   :  https://github.com/microsoft/fluentui/blob/master/LICENSE
+Source    :  assets/img/FluentUISystemColorIcons/fluent-color--document-text-24.svg
+             assets/img/TablerIcons/tabler--fish-christianity.svg
+Changed   :  Yes (Based on fluent-color--document-text-24 and tabler--fish-christianity, modified for project branding)
+
+Full text of MIT is given in LICENSES/MIT.txt
+本项目所用 FakeWordMfc 图标基于 fluent-color--document-text-24 (MIT) 和 tabler--fish-christianity (MIT) 修改而来，遵循 MIT 协议分发。修改内容包括：配色、细节调整及品牌化处理。
 
 --------------------------------------------------------------------------------
 
