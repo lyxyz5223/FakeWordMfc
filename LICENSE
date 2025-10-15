@@ -1,0 +1,53 @@
+================================================================================
+Copyright (c) 2025 lyxyz5223
+This project is licensed under LGPL-2.1.
+Full text of LGPL-2.1 is given in SECTION 1 below.
+
+THIRD-PARTY COMPONENTS
+This software bundles the following third-party components.
+Each component is licensed under the terms shown in SECTION 2.
+================================================================================
+
+SECTION 1. 主许可证
+--------------------------------------------------------------------------------
+SPDX-ID   :  LGPL-2.1
+License   :  LICENSES/LGPL-2.1.txt
+
+Full text of LGPL-2.1 is given in LICENSES/LGPL-2.1.txt
+
+--------------------------------------------------------------------------------
+
+SECTION 2. 第三方组件许可证
+--------------------------------------------------------------------------------
+Component :  commitizen  (^4.3.1)
+SPDX-ID   :  MIT
+Location  :  node_modules/commitizen/
+Home-page :  https://github.com/commitizen/cz-cli
+License   :  https://github.com/commitizen/cz-cli/blob/master/LICENSE
+Changed   :  No
+
+Full text of MIT is given in LICENSES/MIT.txt
+
+--------------------------------------------------------------------------------
+
+Component :  cz-conventional-changelog  (^3.3.0)
+SPDX-ID   :  MIT
+Location  :  node_modules/cz-conventional-changelog/
+Home-page :  https://github.com/cz-conventional-changelog/cz-conventional-changelog
+License   :  https://github.com/cz-conventional-changelog/cz-conventional-changelog/blob/master/LICENSE
+Changed   :  No
+
+Full text of MIT is given in LICENSES/MIT.txt
+
+--------------------------------------------------------------------------------
+
+Component :  Microsoft Foundation Classes (MFC)
+Version   : 随 Visual Studio 安装
+SPDX-ID   :  LicenseRef-Proprietary
+Location  :  编译器自带
+License   :  https://docs.microsoft.com/en-us/visualstudio/releases/2022/license-terms/
+Changed   :  No
+
+该组件为微软专有软件，仅按 Visual Studio 最终用户许可协议使用；
+本分发包未包含 MFC 源代码，最终用户需自行遵守 Microsoft EULA。
+--------------------------------------------------------------------------------
