@@ -81,21 +81,35 @@ private:
 		auto parentCwnd = CWnd::FromHandle(target);
 		std::unique_ptr<CStateBoxDlg> stateBox = std::make_unique<CStateBoxDlg>();
 		auto& dlg = embeddedStateDlg = std::move(stateBox);
+		dlg->setCurrentTargetHwnd(target);
 		dlg->Create(0);
 		//::SetParent(dlg->GetSafeHwnd(), target);
-		dlg->SetParent(parentCwnd);
+		//dlg->SetParent(parentCwnd);
 		CRect windowRect;
 		dlg->GetWindowRect(windowRect);
-		windowRect.MoveToXY(0, 0);
+		CRect targetRect;
+		::GetWindowRect(target, targetRect);
+		windowRect.MoveToXY(targetRect.TopLeft());
 		dlg->MoveWindow(windowRect);
 		//::MoveWindow(dlg->GetSafeHwnd(), windowRect.left, windowRect.top, windowRect.Width(), windowRect.Height(), TRUE);
 		dlg->show();
 	}
 	bool isStateBoxDlgExist() {
-		return embeddedStateDlg && embeddedStateDlg->GetSafeHwnd() && IsWindow(embeddedStateDlg->GetSafeHwnd());
+		return embeddedStateDlg.get();
 	}
-	void destroyStateBoxDlg() {
-		embeddedStateDlg.release();
+	
+	void hideStateBoxDlg() {
+		//embeddedStateDlg->SetParent(0);
+		embeddedStateDlg->hide();
+	}
+
+	void showStateBoxDlg(HWND hwnd) {
+		//embeddedStateDlg->SetParent(CWnd::FromHandle(hwnd));
+		embeddedStateDlg->show();
+		if (embeddedStateDlg->getCurrentTargetHwnd() != hwnd)
+		{
+			embeddedStateDlg->setCurrentTargetHwnd(hwnd);
+		}
 	}
 	// 嵌入Word的状态显示窗口，每个Word独一份
 	// 映射中的键，唯一id
@@ -158,6 +172,7 @@ private:
 	 * 原型 HRESULT WindowActivate(struct _Document* Doc, struct Window* Wn);
 	 */
 	Result<bool> onWordWindowActivate(DISPPARAMS* params, WordEventSink::UserDataType userData);
+	Result<bool> onWordWindowDeactivate(DISPPARAMS* params, WordEventSink::UserDataType userData);
 
 
 	/**

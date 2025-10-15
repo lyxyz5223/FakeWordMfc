@@ -47,6 +47,20 @@ public:
 		setSwitchReplaceModeHoyKey(hotKey);
 	}
 
+private:
+	bool m_bExit = false;
+	HWND currentTargetHwnd = NULL;
+public:
+	void destroy() {
+		this->DestroyWindow();
+		delete this;
+	}
+	void setCurrentTargetHwnd(HWND hwnd) {
+		this->currentTargetHwnd = hwnd;
+	}
+	HWND getCurrentTargetHwnd() const {
+		return this->currentTargetHwnd;
+	}
 public:
 	CStateBoxDlg(CWnd* pParent = nullptr);   // 标准构造函数
 	virtual ~CStateBoxDlg();

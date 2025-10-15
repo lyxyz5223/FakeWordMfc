@@ -411,7 +411,7 @@ void CFakeWordMfcDlg::OnBnClickedBtnOpenWord()
 	}
 	if (wordCtrller)
 	{
-		destroyStateBoxDlg();
+		hideStateBoxDlg();
 		try {
 			wordCtrller->getApp()->Quit();
 		}
@@ -450,9 +450,9 @@ void CFakeWordMfcDlg::OnBnClickedBtnOpenWord()
 	wordCtrller->registerEvent(__uuidof(Word::ApplicationEvents4), 10/*窗口激活*/, [this](DISPPARAMS* params, WordEventSink::UserDataType userData) {
 		return this->onWordWindowActivate(params, userData);
 		}, 0);
-	//wordCtrller->registerEvent(__uuidof(Word::ApplicationEvents4), 11/*窗口去激活*/, [this](DISPPARAMS* params, WordEventSink::UserDataType userData) {
-	//	return this->onWordDocumentBeforeClose(params, userData);
-	//	}, 0);
+	wordCtrller->registerEvent(__uuidof(Word::ApplicationEvents4), 11/*窗口去激活*/, [this](DISPPARAMS* params, WordEventSink::UserDataType userData) {
+		return this->onWordWindowDeactivate(params, userData);
+		}, 0);
 	findWordDocumentHWND(); // 先获取一遍文档HWND
 
 	switch (wordDetectMode)
@@ -524,8 +524,10 @@ void CFakeWordMfcDlg::OnBnClickedBtnOpenWord()
 	{
 		//CWnd* wordDocumentCwnd = CWnd::FromHandle(wordDocumentHwnd);
 		newStateBoxDlg(wordAppHwnd);
-		updateStateBoxDlg(embeddedStateDlg);
 	}
+	else
+		showStateBoxDlg(wordAppHwnd);
+	updateStateBoxDlg(embeddedStateDlg);
 }
 
 //InputInterceptor* interceptor = new InputInterceptor();
@@ -741,7 +743,10 @@ void CFakeWordMfcDlg::updateWordText(Word::_DocumentPtr doc, const std::wstring&
 
 Result<bool> CFakeWordMfcDlg::onWordDocumentBeforeClose(DISPPARAMS* params, WordEventSink::UserDataType userData)
 {
-	destroyStateBoxDlg();
+	if (isStateBoxDlgExist())
+	{
+		hideStateBoxDlg();
+	}
 	try {
 		IDispatch* disp = params->rgvarg[0].pdispVal;
 		CComPtr<IDispatch> docDisp(disp);
@@ -777,11 +782,6 @@ Result<bool> CFakeWordMfcDlg::onWordDocumentBeforeClose(DISPPARAMS* params, Word
 
 Result<bool> CFakeWordMfcDlg::onWordWindowActivate(DISPPARAMS* params, WordEventSink::UserDataType userData)
 {
-	if (isStateBoxDlgExist())
-	{
-		embeddedStateDlg->show();
-		updateStateBoxDlg(embeddedStateDlg);
-	}
 	// 原型: HRESULT WindowActivate(struct _Document* Doc, struct Window* Wn);
 	Result<bool> rst(false, E_POINTER, L"指针异常");
 	auto paramCount = params->cArgs;
@@ -813,6 +813,7 @@ Result<bool> CFakeWordMfcDlg::onWordWindowActivate(DISPPARAMS* params, WordEvent
 			<< std::endl;
 		return ErrorResult<bool>(hr, err.ErrorMessage());
 	}
+	HWND wordWindowHwnd = 0;
 	try {
 		_bstr_t docNameBstr = docPtr->GetName();
 		// 日志，消息框
@@ -832,13 +833,26 @@ Result<bool> CFakeWordMfcDlg::onWordWindowActivate(DISPPARAMS* params, WordEvent
 		//std::thread([msg = docNameStream.str()] {::MessageBox(0, msg.c_str(), L"Info", MB_ICONINFORMATION); }).detach();
 
 		// 获取窗口句柄
-		HWND hwnd = reinterpret_cast<HWND>(windowPtr->GetHwnd());
-		if (embeddedStateDlg && embeddedStateDlg->GetSafeHwnd())
-			::SetParent(embeddedStateDlg->GetSafeHwnd(), hwnd);
+		wordWindowHwnd = reinterpret_cast<HWND>(windowPtr->GetHwnd());
 	}
 	COM_CATCH_NOMSGBOX(L"Word事件 WindowActivate 处理出错", rst)
 	COM_CATCH_ALL_NOMSGBOX(L"Word事件 WindowActivate 处理出错", rst)
+
+	if (isStateBoxDlgExist())
+	{
+		showStateBoxDlg(wordWindowHwnd);
+		updateStateBoxDlg(embeddedStateDlg);
+	}
 	return rst;
+}
+
+Result<bool> CFakeWordMfcDlg::onWordWindowDeactivate(DISPPARAMS* params, WordEventSink::UserDataType userData)
+{
+	if (isStateBoxDlgExist())
+	{
+		hideStateBoxDlg();
+	}
+	return Result<bool>(true);
 }
 
 BOOL CFakeWordMfcDlg::enumWordChildWindowsProc(HWND hwnd, LPARAM params)
@@ -951,8 +965,10 @@ void CFakeWordMfcDlg::OnClose()
 	auto toolTip = m_pToolTip;
 	m_pToolTip = nullptr;
 	toolTip->DestroyToolTipCtrl();
-	destroyStateBoxDlg();
-	delete wordCtrller;
+	if (isStateBoxDlgExist())
+		embeddedStateDlg->destroy();
+	if (embeddedStateDlg)
+		embeddedStateDlg.release();
 	CDialogEx::OnCancel(); // 这里关闭对话框
 	CDialogEx::OnClose();
 }

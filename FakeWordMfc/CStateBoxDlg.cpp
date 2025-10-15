@@ -42,15 +42,11 @@ END_MESSAGE_MAP()
 void CStateBoxDlg::OnDestroy()
 {
 	CDialogEx::OnDestroy();
-
-	// TODO: 在此处添加消息处理程序代码
-	delete this;
 }
 
 
 void CStateBoxDlg::OnClose()
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
 
 	CDialogEx::OnClose();
 }
